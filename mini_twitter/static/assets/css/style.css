@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-warm-black{
+    background: #004346 !important;
+}
+
+.bg-pale {
+    background-color: #E5E8B6 !important;
+}
+
+.bg-maize {
+    background-color: #EEC643 !important;
+}

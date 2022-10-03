@@ -1,0 +1,28 @@
+{% load static %}
+
+<header class="mt-4">
+    <nav id="container">
+        <ul class="row list-unstyled">
+            <li class="col border-end border-info border-opacity-50">
+                <div class="mx-3">
+                    <a class="text-decoration-none" href="/">
+                        <h1 class="bg-warm-black">
+                            Conecte-<span class="text-info">se</span>
+                        </h1>
+                    </a>
+                    <a class="text-decoration-none" href="/profile">{{ user }}</a>
+                </div>
+            </li>
+            <li class="col border-end border-info border-opacity-50">
+                <form class="" role="form" method="post" action="{% url 'search' %}" >
+                    <div class="input-group">
+                        <input class="input-search w-75 form-control" placeholder="Procurar por..." type="text" name="search"> <button class="btn btn-primary shadow-2">Pesquisar</button>
+                    </div>
+                </form>
+            </li>
+            <li class="col">
+
+            </li>
+        </ul>
+    </nav>
+</header>
