@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import PostModelForm, SearchForm
-from .models import Post
+from publications.models import Post
 
 # Create your views here.
 

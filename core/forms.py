@@ -1,4 +1,4 @@
-from .models import Post, Comment, FriendRequest
+from publications.models import Post
 from django import forms
 
 

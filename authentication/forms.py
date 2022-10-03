@@ -5,7 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from core.models import CustomUser
+from users.models import CustomUser
 from django.contrib.auth import authenticate
 
 

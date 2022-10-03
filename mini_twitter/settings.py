@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'bootstrap4',
     'stdimage',
     'core',
-    'authentication'
+    'authentication',
+    'publications',
+    'users'
 
 ]
 
@@ -121,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -144,4 +146,4 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "core.CustomUser" 
+AUTH_USER_MODEL = "users.CustomUser"
