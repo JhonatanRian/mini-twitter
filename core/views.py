@@ -11,7 +11,7 @@ def index(request):
 
     if str(request.method) == "POST":
         if form.is_valid():
-            form.instance.propertier = request.user
+            # form.instance.propertier = request.user
             form.save()
             form = PostModelForm()
 
