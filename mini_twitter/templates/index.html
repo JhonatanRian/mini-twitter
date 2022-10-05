@@ -29,14 +29,14 @@
             {% for post in posts %}
                 <div class="card mt-2 mb-5 w-100">
                     <div class="card-header">
-                        <h5 class="card-title">{{ post.propertier }}</h5>
+                        <h5 class="card-title">{{ post.propertier.name }}</h5>
                     </div>
                     <div class="card-body">
                         <div>
                             <p>{{ post.text }}</p>
                         </div>
                         <div class="text-center">
-                            <img class="card-img" src="https://graph.facebook.com/1293124857432854/picture?type=large" alt="">
+                            <img class="card-img" src="{{ post.archive.url }}" alt="">
                         </div>
                     </div>
                     <div class="card-footer">

@@ -8,10 +8,11 @@ from publications.models import Post
 @login_required(login_url="/login/")
 def index(request):
     form = PostModelForm(request.POST or None, request.FILES)
+    form.user = request.user
 
     if str(request.method) == "POST":
         if form.is_valid():
-            # form.instance.propertier = request.user
+            # form.
             form.save()
             form = PostModelForm()
 

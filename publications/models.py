@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from users.models import CustomUser
 from core.models import Base
 from stdimage.models import StdImageField
 
@@ -21,12 +21,12 @@ class Publication(Base):
 
 
 class Post(Publication):
-    propertier = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="posts"),
+    propertier = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="posts")
     visible = models.BooleanField(default=True)
 
 
 class Comment(Publication):
-    propertier = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="posts"),
+    propertier = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="posts"),
 
     class Meta:
         verbose_name = 'comment'
@@ -40,7 +40,7 @@ class TypeReaction(Base):
 
 class Reaction(Base):
     type_reaction = models.ForeignKey(TypeReaction, on_delete=models.CASCADE, related_name="type_reaction")
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="reaction"),
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="reaction"),
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="reaction", null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="reaction", null=True)
 

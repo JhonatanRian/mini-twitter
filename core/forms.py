@@ -3,9 +3,15 @@ from django import forms
 
 
 class PostModelForm(forms.models.ModelForm):
+
+    def save(self, commit=True):
+        self.instance.propertier = self.user
+        post = super().save(commit=False)
+        post.save()
+
     class Meta:
         model = Post
-        fields = ['text', "archive"]
+        fields = ['text', 'archive']
         widgets = {
             'text': forms.TextInput(
                 attrs={
@@ -20,6 +26,7 @@ class PostModelForm(forms.models.ModelForm):
                 }
             ),
             }
+    
 
 
 class SearchForm(forms.Form):
