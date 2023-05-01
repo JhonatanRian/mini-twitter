@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<div class="col">
+</div>
+<div class="col">
+    <div class="card">
+        <div class="card-body text-center">
+            <form role="form" method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="input-group w-100 mb-3">
+                    {{ form.text }}
+                    <button type="submit" name="puclic" class="btn btn-primary shadow-2">Postar</button>
+                </div>
+
+                <div class="input-group">
+                    {{ form.archive }}
+                    <label class="input-group-text" for="input_file">Upload</label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="postings">
+        {% for post in posts %}
+        <div class="card mt-2 mb-5 w-100">
+            <div class="card-header">
+                <h5 class="card-title">{{ post.propertier.name }}</h5>
+            </div>
+            <div class="card-body">
+                <div>
+                    <p>{{ post.text }}</p>
+                </div>
+                <div class="text-center">
+                    <img class="card-img" src="{{ post.archive.url }}" alt="">
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col"><button
+                            class="badge text-primary bg-primary border-0 pointer-event">.</button><button
+                            class="badge bg-warning text-warning border-0 pointer-event">.</button><button
+                            class="badge bg-danger text-danger border-0 pointer-event">.</button><button
+                            class="badge bg-success text-success border-0 pointer-event">.</button></div>
+                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1"
+                        aria-labelledby="exampleModalScrollableTitle" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Comentarios</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <img class="figure-img w-25"
+                                                src="https://graph.facebook.com/1293124857432854/picture?type=large"
+                                                alt="rapaz">
+                                            <p></p>
+                                        </li>
+                                        <li class="list-group-item list">
+                                            tá feião
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-center"><button class="badge bg-primary border-0 pointer-event"
+                            data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Comentar</button></div>
+                    <div class="col text-center"><button
+                            class="badge bg-primary border-0 pointer-event">Compartilhar</button></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="col">
+</div>
+
+{% endblock content %}
